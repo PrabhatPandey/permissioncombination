@@ -4,8 +4,8 @@ import itertools
 from pprint import pprint
 import subprocess
 
-revoke = 'adb shell pm revoke com.media.sample '
-grant = 'adb shell pm grant com.media.sample '
+revoke = 'adb shell pm revoke net.media.sample '
+grant = 'adb shell pm grant net.media.sample '
 
 "List of permissions."
 
