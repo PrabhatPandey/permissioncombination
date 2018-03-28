@@ -62,16 +62,24 @@ def runBannerVideoTestCase(permission):
 	print "Ran banner video case."
 
 def runInterestialTextTestCase(permission):
-	cmd = 'adb shell am instrument -w -r -e debug false -e class net.media.sample.AdSdkInstrumentationTest#testIfWeClickOnInterestialAdItOpensInTheBrowserInLandscapeMode com.media.sample.test/android.support.test.runner.AndroidJUnitRunner'
+	cmd = 'adb shell am instrument -w -r -e debug false -e class net.media.sample.AdSdkInstrumentationTest#testIfWeClickOnInterstitialAdItOpensInTheBrowser com.media.sample.test/android.support.test.runner.AndroidJUnitRunner'
 	print cmd
 	print "Running this interestial  text case when this permissin is granted. ->"+permission
 	executeThisCommand(cmd)
 	print "Ran interestial text case."
 	
 def runInterestialVideoTestCase(permission):
-	cmd = 'adb shell am instrument -w -r -e debug false -e class net.media.sample.AdSdkInstrumentationTest#testThatTheInterestialVideoAdClickFunctionIsWorking com.media.sample.test/android.support.test.runner.AndroidJUnitRunner'
+	cmd = 'adb shell am instrument -w -r -e debug false -e class net.media.sample.AdSdkInstrumentationTest#testIfInTheInterstitialVideoAdCloseCallIsWorking com.media.sample.test/android.support.test.runner.AndroidJUnitRunner'
 	print cmd
 	print "Running this Interestial Video  case when this permissin is granted. ->"+permission
+	executeThisCommand(cmd)	
+	print "Ran interestial video case."
+	
+	
+def runRewardedVideoTestCase(permission):
+	cmd = 'adb shell am instrument -w -r -e debug false -e class net.media.sample.AdSdkInstrumentationTest#testIfTheRewardedVideoIsLoadedCallBackIsWorkingInPortraitMode com.media.sample.test/android.support.test.runner.AndroidJUnitRunner'
+	print cmd
+	print "Running this Rewarded Video  case when this permissin is granted. ->"+permission
 	executeThisCommand(cmd)	
 	print "Ran interestial video case."
 
@@ -111,6 +119,7 @@ def main():
 		runBannerVideoTestCase(value)
 		runInterestialTextTestCase(value)
 		runInterestialVideoTestCase(value)
+		runRewardedVideoTestCase(value)
 		print "Finished running all 4 tests for this granted permission : " + value
 
 if __name__ =='__main__':
